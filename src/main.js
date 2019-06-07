@@ -1,23 +1,23 @@
-import { WeatherService } from './weather.js';
+import { DoctorService } from './doctors.js';
 import $ from 'jquery';
 
 $(document).ready(function() {
-  $('#weatherLocation').click(function() {
-    let city = $('#location').val();
-    $('#location').val("");
+  $('#doctorQuery').click(function() {
+    let query = $('#query').val();
+    $('#query').val("");
+    console.log(query);
 
 
-    let weatherService = new WeatherService();  // create instance of WeatherService class
-    let promise = weatherService.getWeatherByCity(city);  // call the instance method and pass in user input
+    let doctorService = new DoctorService();  // create instance of WeatherService class
+    let promise = doctorService.getDoctorByQuery(query);  // call the instance method and pass in user input
 
     promise.then(function(response) {
       let body = JSON.parse(response);
-      $('.showHumidity').text(`The humidity in ${city} is ${body.main.humidity}%`);
-      $('.showTemp').text(`The temperature in Kelvins is ${body.main.temp} degrees.`);
+      $('.showDoctor').text(`The Doctors in ${query} are ${body.data.profile.first_name}%`);
     }, function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error.message}`);
     });
   });
 
 });
-// c9781f5f2386e09424b4ffd04b0deb8b
+// f01cd61ef76432e58af10a28661bec99

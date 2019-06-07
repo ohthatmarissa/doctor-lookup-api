@@ -1,8 +1,8 @@
-export class WeatherService {
-    getWeatherByCity(city) {
+export class DoctorService {
+    getDoctorByQuery(query) {
       return new Promise(function(resolve, reject) {
         let request = new XMLHttpRequest();
-        let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c9781f5f2386e09424b4ffd04b0deb8b`;
+        const url = `https://api.betterdoctor.com/2016-03-01/doctors?query=${query}&location=wa-seattle&limit=10&user_key=f01cd61ef76432e58af10a28661bec99`;
         request.onload = function() {
           if (this.status === 200) {
             resolve(request.response);
