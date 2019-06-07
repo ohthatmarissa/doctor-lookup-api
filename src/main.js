@@ -13,6 +13,7 @@ $(document).ready(function() {
 
     promise.then(function(response) {
       let body = JSON.parse(response);
+      
       $('.showDoctor').text(`The Doctors in ${query} are ${body.data.profile.first_name}%`);
     }, function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error.message}`);
