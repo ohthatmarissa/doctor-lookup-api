@@ -1,16 +1,18 @@
 <html>
   <head>
 
-    <title>Weather</title>
+    <title>Doctor Lookup</title>
   </head>
   <body>
     <div class="container">
       <h1>Find a doctor!</h1>
-      <label for="query">Enter an ailment:</label>
-      <input id="query" type="text">
-      <button class="btn-success" id="doctorQuery">Get Doctors!</button>
+      <form id="doctorQuery">
+        <label for="query">Enter an ailment:</label>
+        <input id="query" type="text">
+        <button class="btn-success" id="doctorService">Get Doctors!</button>
+      </form>
       <div class="errors"></div>
-      <div class="showDoctor"></div>
+      <div id="searchResults"></div>
     </div>
   </body>
 </html>
